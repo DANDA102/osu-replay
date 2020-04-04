@@ -25,17 +25,23 @@ def getHashes():
         }, dict()
     ]
 
+    hashDict = {}
     hashDict = properties[1]
+    hashKeys = list(hashDict.keys())
 
     print("json loaded")
 
+    #delete deleted map's hashes
+    for i in hashKeys:
+        if not os.path.exists("..\\Songs\\" + hashDict[i]):
+            hashDict.pop(i)
 
     #add osu hashes
     for i in glob.iglob('..\\Songs\\*'):
         #*i = directory
         #select directory
 
-        if os.stat(i).st_mtime >= latest and os.path.isdir(i):
+        if os.path.isdir(i):
             for j in glob.iglob(glob.escape(i) + "\\*.osu"):    #glob.escape() neutralizes all wildcard letters
                 #*j = file
                 #select file
