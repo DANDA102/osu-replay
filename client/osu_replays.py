@@ -46,7 +46,10 @@ def getHashes():
                 #*j = file
                 #select file
 
-                if os.stat(j).st_mtime >= latest:
+                if os.stat(j).st_mtime >= latest or os.stat(j).st_ctime >= latest:
+                    for k in list(hashDict.keys()):
+                        if j.split("\\")[-2] + "\\" + j.split("\\")[-1] == hashDict[k]:
+                            hashDict.pop(k)
                     #something hash
                     m = hashlib.md5()
                     #read file
