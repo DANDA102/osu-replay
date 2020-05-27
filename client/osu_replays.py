@@ -105,7 +105,7 @@ def getReplays():
     jsonList[1] = replaysToUP
     
     with open('property.json', 'w') as f:
-        json.dump(jsonList, f, indent=4)
+        json.dump(jsonList, f, indent=4)    #!I think it's not necessary
     
     print("data saved")
 

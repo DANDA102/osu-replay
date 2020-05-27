@@ -4,7 +4,7 @@ import socket
 
 clientSock = socket.socket()
 print('connecting...')
-clientSock.connect(('25.5.0.156', 31221))
+clientSock.connect(('하마치 아이피', 31221))
 
 print('connected, first step started')
 
